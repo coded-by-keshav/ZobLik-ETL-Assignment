@@ -1,0 +1,8 @@
+"select c.customer_id,  c.age,  i.item_name,  SUM(o.quantity) as total_quantity",,,
+from sales s ,,,
+join customers c on s.customer_id == c.customer_id,,,
+join orders o on s.sales_id == o.sales_id,,,
+join items i on o.item_id == i.item_id,,,
+where c.age BETWEEN 18 and 35,,,
+"group by c.customer_id,  i.item_id",,,
+HAVING total_quantity > 0;,,,
